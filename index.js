@@ -1,4 +1,4 @@
-const OPEN_API_KEY = "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"
+import 'dotenv/config'
 const btn = document.querySelector("#btn")
 const input = document.querySelector(`#input`)
 
@@ -15,12 +15,12 @@ btn.addEventListener(`click`, async () => {
             }),
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${OPEN_API_KEY}`
+                "Authorization": `Bearer ${process.env.OPEN_API_KEY}`
             }
         });
 
         const data = await res.json();
-        
+
         console.log(data);
     } catch (error) {
         console.error(error);
